@@ -41,7 +41,8 @@ namespace CreateMultiTiffImage
             bitmap.SaveAdd(img1, encoderparams);
 
             // Close the file
-            encoderparams.Param[0] = new EncoderParameter(enc, (long)EncoderValue.Flush);
+            if (encoderparams.Param[0].NumberOfValues > 0)
+                encoderparams.Param[0] = new EncoderParameter(enc, (long)EncoderValue.Flush);
             bitmap.SaveAdd(encoderparams);
 
             Console.ReadLine();
